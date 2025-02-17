@@ -1,0 +1,1 @@
+const char *handle_file_extension(const char *string);
