@@ -1,4 +1,4 @@
-#include "../../../include/modules/backup/copy.h"
+#include "../../../include/modules/utilities/copy.h"
 
 #include "../../../include/errors.h"
 
@@ -42,7 +42,7 @@ int copy(const char *destination_file, const char *source_file)
 			destination_eof = ftell(destination);
 	
 			if(source_eof == destination_eof)
-				fprintf(stdout, "Successful copy!\n");
+				fprintf(stdout, "Successful copy! ( filename: \x1b[31m%s\x1b[0m )\n", destination_file);
 			else
 			{	
 				fprintf(stderr, "Error on copy: Mismatch of EOF's source/destination!\n");
@@ -50,7 +50,9 @@ int copy(const char *destination_file, const char *source_file)
 			}
 			
 			if(fclose(destination) == 0)
-				fprintf(stdout, "Closed writing file!\n");
+			{
+				//fprintf(stdout, "Closed writing file!\n");
+			}
 			else
 			{
 				fprintf(stderr, "Error on closing writing file: (%s)\n", strerror(errno));
@@ -65,7 +67,9 @@ int copy(const char *destination_file, const char *source_file)
 		}
 
 		if(fclose(source) == 0)
-			fprintf(stdout, "Closed file for reading!\n");
+		{
+			//fprintf(stdout, "Closed file for reading!\n");
+		}
 		else
 		{
 			fprintf(stderr, "Error on closing reading file: (%s)\n", strerror(errno));

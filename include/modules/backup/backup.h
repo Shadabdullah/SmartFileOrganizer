@@ -1,12 +1,12 @@
 #ifndef BACKUP_H
 #define BACKUP_H
 
-#include "copy.h"
+#include "../utilities/copy.h"
 #include "directories.h"
 #include "permissions.h"
 
-#include "status.h"
+#include <stddef.h>
 
-int backup_create(const char *path);
+int backup_create();
 
 #endif

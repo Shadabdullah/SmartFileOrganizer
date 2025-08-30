@@ -1,5 +1,5 @@
 #include "../../../include/modules/backup/directories.h"
-#include "../../../include/modules/backup/copy.h"
+#include "../../../include/modules/utilities/copy.h"
 
 #include "../../../include/errors.h"
 
@@ -12,7 +12,7 @@
 #include <limits.h>
 #include <sys/stat.h>
 
-int cwd_all_files(const char *pathname)
+int cwd_all_files(char *pathname)
 {
 
 	struct dirent *entries;
@@ -22,34 +22,34 @@ int cwd_all_files(const char *pathname)
 
 	if(getcwd(cwd_buffer, PATH_MAX) != NULL)
 	{
-	
+
 		dir_name = opendir(cwd_buffer);
 
 		if(dir_name)
 		{
-			//ToDo: passing pathname and creating checks for valid pathname	
-			char backup_directory[strlen(cwd_buffer) + strlen(pathname) + strlen("/backup/") + 1];
-		
-			char *chosen_path;
 
-			strcpy(chosen_path, pathname);
+			char backup_directory[strlen(cwd_buffer) + strlen("/backup/") + 1];
 
 			strcpy(backup_directory, cwd_buffer);
-			
+		
 			if(strcat(backup_directory, "/backup/") != NULL) // Default for now
 			{
-				fprintf(stdout, "directory: %s\n", backup_directory);
-						
+				fprintf(stdout, "\nDirectory: \x1b[34m%s\x1b[0m\n", backup_directory);
+				
 				if(mkdir(backup_directory, 0755) == 0)
 				{
 
-					fprintf(stdout, "Success on creating backup directory!\n");
+					fprintf(stdout, "\nSuccess on creating backup directory!\n\n");
 				}
 				else
 				{
 					fprintf(stderr, "Error on creating directory: (%s)\n", strerror(errno));
 					return FAIL_CREATE_NEW_DIRECTORY;
 				}
+			}
+			else
+			{
+				fprintf(stderr, "Error on concat backup directory!\n");
 			}
 
 			while((entries = readdir(dir_name)) != NULL)
@@ -84,7 +84,7 @@ int cwd_all_files(const char *pathname)
 				}
 			}
 
-			fprintf(stdout, "Created duplicates!\n");
+			fprintf(stdout, "\nBackup done!\n");
 		}
 		else
 		{
@@ -92,7 +92,6 @@ int cwd_all_files(const char *pathname)
 			return FAIL_OPEN_DIRECTORY_STREAM;
 		}
 		
-
 	}
 	else
 	{

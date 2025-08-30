@@ -1,7 +1,8 @@
 #include "../../../include/modules/backup/backup.h"
 
-int backup_create(const char *path)
+int backup_create()
 {
-	cwd_all_files(path);
+	//Creating back of all files in the current working directory
+	cwd_all_files(NULL);
 }
 

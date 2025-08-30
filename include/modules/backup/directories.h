@@ -7,6 +7,6 @@
  *
  ***/
 
-int cwd_all_files(const char *pathname);
+int cwd_all_files(char *pathname);
 
 #endif
