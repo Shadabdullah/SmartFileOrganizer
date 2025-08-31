@@ -25,13 +25,11 @@
 // Main structure for the state of the cli app
 typedef struct state
 {
-
 	int 	command_status; 				//command status tracker
     	bool    is_running;                 			// stores the current state of the program
 
     	char    user_input[USER_INPUT_BUFFER_LENGTH];   	// holds the user input
     	char    path[PATH_MAX];    				// Holds the path that the user want to use the program
-
 } sfo_state;
 
 /*

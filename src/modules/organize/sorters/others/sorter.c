@@ -1,4 +1,4 @@
-#include "../../../../../include/modules/organize/sorters/others/sorter.h"
+#include "modules/organize/sorters/others/sorter.h"
 
 int others_sorter(char *name)
 {

@@ -1,6 +1,6 @@
-#include "../../../include/modules/utilities/copy.h"
+#include "modules/utilities/copy.h"
 
-#include "../../../include/errors.h"
+#include "errors.h"
 
 #include <stdio.h>
 #include <errno.h>

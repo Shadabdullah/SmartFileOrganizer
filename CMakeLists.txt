@@ -31,9 +31,7 @@ list(APPEND INCLUDES "${CMAKE_SOURCE_DIR}/include/")
 message(STATUS "Sources found: ${SOURCES}")
 message(STATUS "Include directories found: ${INCLUDES}")
 
-include_directories(${INCLUDES})
-
-add_library(cpp_utils STATIC src/cpp/utils.cpp)
+include_directories(./include)
 
 #Main target
 add_executable(sfo ${SOURCES})

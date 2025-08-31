@@ -1,4 +1,4 @@
-#include "../../../../../include/modules/organize/sorters/images/sorter.h"
+#include "modules/organize/sorters/images/sorter.h"
 
 int images_sorter(char *name)
 {

@@ -1,7 +1,7 @@
 #ifndef FILE_STATUS_H
 #define FILE_STATUS_H
 
-#include "../../cli.h"
+#include "cli.h"
 
 
 //Type Detectors

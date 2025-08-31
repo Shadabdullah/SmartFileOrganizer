@@ -1,4 +1,4 @@
-#include "../../../../../include/modules/organize/sorters/videos/sorter.h"
+#include "modules/organize/sorters/videos/sorter.h"
 
 int videos_sorter(char *name)
 {

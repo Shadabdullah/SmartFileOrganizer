@@ -1,7 +1,7 @@
 #ifndef SORTER_DEFAULT_H
 #define SORTER_DEFAULT_H
 
-#include "../../../errors.h"
+#include "errors.h"
 
 #include <unistd.h>
 #include <dirent.h>

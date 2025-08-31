@@ -1,7 +1,7 @@
 #ifndef ORGANIZE_H
 #define ORGANIZE_H
 
-#include "../../cli.h"
+#include "cli.h"
 
 // Creating default directory and hard link to it.
 

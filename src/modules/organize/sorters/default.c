@@ -1,4 +1,4 @@
-#include "../../../../include/modules/organize/sorters/default.h"
+#include "modules/organize/sorters/default.h"
 
 int default_sorter(char *name)
 {
@@ -87,8 +87,6 @@ int default_sorter(char *name)
 								
 									if(strcat(new_dirname, entries->d_name) != NULL)
 									{
-
-										fprintf(stdout, "new dirname with entries: %s\n", new_dirname);
 
 										//Moving the files
 										if(rename(entries->d_name, new_dirname) == 0)

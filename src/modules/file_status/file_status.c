@@ -1,4 +1,4 @@
-#include "../../../include/modules/file_status/file_status.h"
+#include "modules/file_status/file_status.h"
 
 int file_status(sfo_state *state)
 {

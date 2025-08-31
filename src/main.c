@@ -1,9 +1,7 @@
-#include <argp.h>
 #include <stdio.h>
-#include <stdlib.h>
 
-#include "../include/cli.h"
-#include "../include/utils.h"
+#include "cli.h"
+#include "utils.h"
 
 int main(int argc, char *argv[]) {
 

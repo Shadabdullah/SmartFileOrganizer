@@ -1,12 +1,10 @@
-#include "../../../include/modules/organize/organize.h"
+#include "modules/organize/organize.h"
 
 //Sorters
-#include "../../../include/modules/organize/sorters/default.h"
-#include "../../../include/modules/organize/sorters/images/sorter.h"
-#include "../../../include/modules/organize/sorters/videos/sorter.h"
-#include "../../../include/modules/organize/sorters/others/sorter.h"
-
-
+#include "modules/organize/sorters/default.h"
+#include "modules/organize/sorters/images/sorter.h"
+#include "modules/organize/sorters/videos/sorter.h"
+#include "modules/organize/sorters/others/sorter.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -72,9 +70,6 @@ int organize(sfo_state *state)
 	{
 		fprintf(stderr, "Error on selecting option: (%s)\n", strerror(errno));
 	}
-
-	//Output
-
 
 }
 

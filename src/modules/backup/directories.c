@@ -1,8 +1,7 @@
-#include "../../../include/modules/backup/directories.h"
-#include "../../../include/modules/utilities/copy.h"
+#include "modules/backup/directories.h"
+#include "modules/utilities/copy.h"
 
-#include "../../../include/errors.h"
-
+#include "errors.h"
 
 #include <stdio.h>
 #include <unistd.h>
