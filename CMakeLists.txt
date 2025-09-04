@@ -33,6 +33,9 @@ message(STATUS "Include directories found: ${INCLUDES}")
 
 include_directories(./include)
 
+#C++ modules
+add_library(cpp_utils STATIC src/cpp/utils.cpp)
+
 #Main target
 add_executable(sfo ${SOURCES})
 target_link_libraries(sfo PRIVATE cpp_utils SndFile::sndfile LibArchive::LibArchive magic)

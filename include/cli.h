@@ -43,7 +43,7 @@ typedef void (*command_handler_t)(sfo_state *);
 // This struct groups a user command with its corresponding handler function
 typedef struct
 {
-	char *command;
+    const char *command;
     command_handler_t handler;
 } command_dispatch_table_t;
 
