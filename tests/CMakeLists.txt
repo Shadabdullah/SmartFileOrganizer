@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 3.25)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_COMPILER "/usr/local/bin/clang++")
+
+find_program(CLANG clang++)
+if(NOT CLANG)
+	message(FATAL_ERROR "You don't have clang installed on your system")
+ endif()
+
+set(CMAKE_CXX_COMPILER ${CLANG})
 
 project(tests)
 
@@ -24,9 +30,7 @@ find_package(LibArchive REQUIRED)
 #Functions to be tested
 
 file(GLOB_RECURSE SOURCE_DIRS LIST_DIRECTORIES true "${CMAKE_SOURCE_DIR}/../src/*")
-file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true "${CMAKE_SOURCE_DIR}/../include/*")
 
-set(INCLUDES "")
 set(SOURCES "")
 
 foreach(ITEM ${SOURCE_DIRS})
@@ -40,18 +44,11 @@ foreach(ITEM ${SOURCE_DIRS})
     endif()
 endforeach()
 
-foreach(ITEM ${INCLUDE_DIRS})
-    if(IS_DIRECTORY ${ITEM})
-        list(APPEND INCLUDES ${ITEM})
-    endif()
-endforeach()
 
-list(APPEND INCLUDES "${CMAKE_SOURCE_DIR}../../include/")
 
 message(STATUS "Sources found: ${SOURCES}")
-message(STATUS "Include directories found: ${INCLUDES}")
 
-include_directories("${INCLUDES}")
+include_directories(./../include ./include)
 add_executable(${PROJECT_NAME} ${SOURCES} src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest_main magic archive sndfile ogg vorbis vorbisenc FLAC opus mp3lame mpg123)

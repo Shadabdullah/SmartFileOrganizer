@@ -69,19 +69,23 @@ int read_input(sfo_state *state)
 	{
 		case '1':
 		case 'o':
+		case 'O':
 			{
 				strcpy(state->user_input, "organize");
 			}
 			break;
 		case '2':
 		case 'b':
+		case 'B':
 			{
 				strcpy(state->user_input, "backup");
 			}
 			break;
 		case '3':
 		case 'e':
+		case 'E':
 		case 'q':
+		case 'Q':
 			{
 				strcpy(state->user_input, "exit");
 			}
