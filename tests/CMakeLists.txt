@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 3.25)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_COMPILER "/usr/local/bin/clang++")
+
+find_program(CLANG clang++)
+if(NOT CLANG)
+	message(FATAL_ERROR "You don't have clang installed on your system")
+ endif()
+
+set(CMAKE_CXX_COMPILER ${CLANG})
 
 project(tests)
 
